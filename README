@@ -1,0 +1,28 @@
+Java code to display behind a smart mirror
+
+email: MirrorControlJimAli@gmail.com
+password: mirrorcontrolpassword
+
+ToDo:
+	Add refresh rate at 1 hour (?)
+	X Add message app from phones
+	     - Possible routes either ssh or emails?
+	X Add next Munster/Glasgow/Everton match with time,date and channel
+	Fix tube lines to include colour and format table
+	Add weather symbols and tidy up
+	Add android control function. Suggest app design:
+
+	    [Off]   [On]    	- Turn tv & raspberry pi On/Off
+	     [ Update ]		- Update tubes/weather etc.
+  	      [Message]		- Add a message to the message app
+	      			- [ New ]
+				- [ Remove ]
+				- [ Clear ]
+ 
+        Change tube lines to first letters (of each word) if > 3 chars
+	Word wrap / truncation for messages?
+	Weather icons - Main by temp and wind symbols to arrows
+	Remove & refresh time and messages more often than other apps
+	Fix messages to not used external file
+	Aligment of all apps
+	Fix imports to only use what we need
