@@ -50,9 +50,9 @@ public class Sports extends App{
     }
 
     public void Draw(){
-	int y = m_frame.m_height - (m_games.size() * 30);
+	int y = m_frame.m_height - (m_games.size() * 25);
 	for ( Game g : m_games ){
-	    m_frame.DrawText( g.m_team + " v " + g.m_opponent + "\t | \t" + g.m_date + "\t | \t" + g.m_kickOff + "\t | \t" + g.m_channel, m_left, y );
+	    m_frame.DrawText( g.m_team + " v " + g.m_opponent + "\t | \t" + g.m_date + "\t | \t" + g.m_kickOff + "\t | \t" + g.m_channel, m_left, y, 10 );
 	    y += 20;
 	}
     }

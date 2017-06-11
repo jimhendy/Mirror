@@ -52,17 +52,34 @@ public class Tubes extends App{
     }
 
     public void Update() throws Exception {
-	String url = "https://tfl.gov.uk/tube-dlr-overground/status/";
-	URL websiteURL = new URL( url );
-        BufferedReader in = new BufferedReader(
-		new InputStreamReader(websiteURL.openStream()));
-        String inputLine;
+	String urlString = "https://tfl.gov.uk/tube-dlr-overground/status/";
+	//URL websiteURL = new URL( url );
+	URLConnection uc;
+	URL url = new URL(urlString);
+	uc = url.openConnection();
+	uc.connect();
+
+	uc = url.openConnection();
+	uc.addRequestProperty("User-Agent",
+			      "Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.84 Safari/537.36");
+
+	uc.getInputStream();
+	BufferedInputStream in = new BufferedInputStream(uc.getInputStream());
 	m_tubes = new Vector<Tube>();
 	StringBuilder everything = new StringBuilder();	
+	int ch;
+	while ((ch = in.read()) != -1) {
+	    everything.append((char) ch);
+	}
+	/*
+        BufferedReader in = new BufferedReader(
+		new InputStreamReader(websiteURL.openStream()));
+	String inputLine;
 	while ((inputLine = in.readLine()) != null){
 	        everything.append(inputLine);
 	}
-	String allText = everything.toString();
+	*/
+	String allText = everything.toString().replace("\n", "").replace("\r", "");;
 	Pattern MY_PATTERN = Pattern.compile("\\<span\\>(.{0,20}?)\\<\\/span\\>\\<\\/span\\>\\<span class=\"disruption-summary \"\\>\\<span\\>(.+?)\\<br\\/\\>");
 
 	Matcher m = MY_PATTERN.matcher(allText);

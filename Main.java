@@ -26,18 +26,17 @@ public class Main {
 	    }
 	    frame.Clear();
 	    for ( App a : apps ) a.Draw();
-	    for ( int i = 0; i < 10; i++ ){
-		for ( App a : apps ){
-		    if ( a.m_name == "TimeDateApp" || a.m_name == "MessageApp" ){
-			try{
-			    a.Update();
-			    a.Draw();
-			}
-			catch(Exception e){ System.out.println(e); }
+	    while (true){
+		try{
+		    TimeUnit.SECONDS.sleep(30);
+		    for ( App a : apps ){
+			a.Update();
+			a.Draw();
 		    }
+		    
 		}
-		try{TimeUnit.SECONDS.sleep(30);}
-		catch( InterruptedException e ){System.out.println("Interrupted");}
+		catch(Exception e){ System.out.println(e); }
+		
 	    }
 	}
     }

@@ -50,12 +50,12 @@ public class Messages extends App{
 
     public void Update() throws Exception {
 	try{
-	    Process p = Runtime.getRuntime().exec("/home/jim/bin/GetMail.sh");
+	    Process p = Runtime.getRuntime().exec("/home/pi/bin/GetMail.sh");
 	    p.waitFor();
 	}
 	catch(Exception e){ System.out.println(e); }
 	m_notes.clear();
-	String mailDir = "/home/jim/mail/new/";
+	String mailDir = "/home/pi/mail/new/";
 	File folder = new File( mailDir );
 	File[] listOfFiles = folder.listFiles();
 	DateFormat df = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss");
